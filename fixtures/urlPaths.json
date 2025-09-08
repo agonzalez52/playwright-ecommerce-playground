@@ -1,0 +1,21 @@
+{
+    "home": "?route=common/home",
+    "account":
+    {
+        "account": "?route=account/account",
+        "login": "?route=account/login",
+        "register": "?route=account/register",
+        "forgotPassword": "?route=account/forgotten",
+        "address": "?route=account/address",
+        "wishList": "?route=account/wishlist",
+        "orderHistory": "?route=account/order",
+        "downloads": "?route=account/download",
+        "recurringPayments": "?route=account/recurring",
+        "rewardPoints": "?route=account/reward",
+        "returns": "?route=account/return",
+        "transactions": "?route=account/transaction",
+        "newsletter": "?route=account/newsletter",
+        "registerSuccess": "?route=account/success"
+        
+    }
+}
