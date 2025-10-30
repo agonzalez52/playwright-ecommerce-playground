@@ -1,5 +1,3 @@
-const urlPaths = require("../fixtures/urlPaths.json");
-
 // HeaderPage includes top header with search bar and top nav bar
 class HeaderPage{
     constructor(page){
@@ -32,6 +30,10 @@ class HeaderPage{
 
     async clickSearchField(){
         await this.searchField.click();
+    }
+
+    async fillSearchField(text){
+        await this.searchField.fill(text);
     }
 
     async clickSearchButton(){
