@@ -6,6 +6,7 @@ const urlPaths = require("../fixtures/urlPaths.json");
 
 test.describe("Search Page", () => {
     let headerPage;
+    let searchPage;
 
     test.beforeEach(async ({ page }) => {
         headerPage = new HeaderPage(page);
@@ -16,7 +17,7 @@ test.describe("Search Page", () => {
         await headerPage.fillSearchField("phone");
         await headerPage.clickSearchButton();
 
-        let searchPage = new SearchPage(page);
+        searchPage = new SearchPage(page);
         await expect(searchPage.firstSearchResult).toBeVisible();
     });
 
@@ -24,7 +25,7 @@ test.describe("Search Page", () => {
         await headerPage.fillSearchField("phone");
         await headerPage.clickSearchButton();
 
-        let searchPage = new SearchPage(page);
+        searchPage = new SearchPage(page);
         await searchPage.clickFirstSearchResult();
 
         let productDetailPage = new ProductDetailPage(page);
