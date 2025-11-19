@@ -16,4 +16,23 @@ test.describe("Header Page", () => {
         // Check that user was redirected to login page
         await expect(page).toHaveURL(urlPaths.account.login);
     });
+
+    test("Verify user can click into main Header navigations", async({ page }) => {
+        await headerPage.clickHomeNavBarLink();
+        await expect(page).toHaveURL(urlPaths.home);
+
+        await headerPage.clickSpecialNavBarLink();
+        await expect(page).toHaveURL(urlPaths.product.special);
+
+        await headerPage.clickBlogNavBarLink();
+        await expect(page).toHaveURL(urlPaths.blog);
+
+        await headerPage.clickMegaMenuNavBarLink();
+        await expect(page).toHaveURL(urlPaths.aboutUs);
+
+        // Note: AddOns dropdown is not clickable
+
+        await headerPage.clickMyAccountNavBarLink();
+        await expect(page).toHaveURL(urlPaths.account.login);
+    });
 })

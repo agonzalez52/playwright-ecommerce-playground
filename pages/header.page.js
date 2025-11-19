@@ -68,6 +68,14 @@ class HeaderPage{
         await this.blogNavBarLink.click();
     }
 
+    async clickMegaMenuNavBarLink(){
+        await this.megaMenuNavBarHover.click();
+    }
+
+    async clickMyAccountNavBarLink(){
+        await this.myAccountNavBarHover.click();
+    }
+
     async clickMyAccountHoverLogin(){
         await this.myAccountNavBarHover.hover();
         await this.myAccountNavBarHoverLogin.click();
