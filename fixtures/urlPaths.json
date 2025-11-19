@@ -15,7 +15,7 @@
         "returns": "?route=account/return",
         "transactions": "?route=account/transaction",
         "newsletter": "?route=account/newsletter",
-        "registerSuccess": "?route=account/success"
-        
+        "registerSuccess": "?route=account/success",
+        "logout": "?route=account/logout"
     }
 }
