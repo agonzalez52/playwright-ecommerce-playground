@@ -22,6 +22,8 @@
     },
     "product":
     {
-        "special": "?route=product/special"
+        "special": "?route=product/special",
+        "componentsCategory": "?route=product/category&path=25",
+        "camerasCategory": "?route=product/category&path=33"
     }
 }
