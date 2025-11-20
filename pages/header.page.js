@@ -10,6 +10,8 @@ class HeaderPage{
         this.wishlistLink = page.getByRole('link', { name: 'Wishlist', exact: true });
         this.cartLink = page.getByRole('button', { name: '0' });
         this.shopByCategoryMenu = page.getByRole('button', { name: 'Shop by Category' });
+        this.shopByCategoryComponents = page.getByRole('link', { name: 'Components' });
+        this.shopByCategoryCameras = page.getByRole('link', { name: 'Cameras', exact: true });
         this.homeNavBarLink = page.getByRole('link', { name: 'Home' });
         this.specialNavBarLink = page.getByRole('link', { name: 'Special Hot', exact: true });
         this.blogNavBarLink = page.getByRole('link', { name: 'Blog', exact: true });
@@ -52,8 +54,16 @@ class HeaderPage{
         await this.cartLink.click();
     }
 
-    async clickShopByCateboryMenu(){
+    async clickShopByCategoryMenu(){
         await this.shopByCategoryMenu.click();
+    }
+
+    async clickShopByCategoryComponents(){
+        await this.shopByCategoryComponents.click();
+    }
+
+    async clickShopByCategoryCameras(){
+        await this.shopByCategoryCameras.click();
     }
 
     async clickHomeNavBarLink(){

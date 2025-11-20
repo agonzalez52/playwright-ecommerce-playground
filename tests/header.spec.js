@@ -10,11 +10,17 @@ test.describe("Header Page", () => {
         await page.goto(urlPaths.home);
     });
 
-    test("Navigate to My account > Login", async ({ page }) => {
+    test("Verify user can navigate to My account > Login", async ({ page }) => {
         await headerPage.clickMyAccountHoverLogin();
 
         // Check that user was redirected to login page
         await expect(page).toHaveURL(urlPaths.account.login);
+    });
+
+    test("Verify user can navigate to My Account > Register", async({ page }) => {
+        await headerPage.clickMyAccountHoverRegister();
+
+        await expect(page).toHaveURL(urlPaths.account.register);
     });
 
     test("Verify user can click into main Header navigations", async({ page }) => {
@@ -34,5 +40,18 @@ test.describe("Header Page", () => {
 
         await headerPage.clickMyAccountNavBarLink();
         await expect(page).toHaveURL(urlPaths.account.login);
+    });
+
+    // navigate to mega menu options
+
+    // navigate to shop by category options
+    test("Verify user can click Shop by Category links", async({ page }) => {
+        await headerPage.clickShopByCategoryMenu();
+        await headerPage.clickShopByCategoryComponents();
+        await expect(page).toHaveURL(urlPaths.product.componentsCategory);
+
+        await headerPage.clickShopByCategoryMenu();
+        await headerPage.clickShopByCategoryCameras();
+        await expect(page).toHaveURL(urlPaths.product.camerasCategory);
     });
 })
