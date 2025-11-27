@@ -23,7 +23,16 @@
     "product":
     {
         "special": "?route=product/special",
-        "componentsCategory": "?route=product/category&path=25",
-        "camerasCategory": "?route=product/category&path=33"
+        "category":
+        {
+            "components": "?route=product/category&path=25",
+            "printer": "?route=product/category&path=30",
+            "cameras": "?route=product/category&path=33"
+            
+        },
+        "manufacturer":
+        {
+            "apple": "?route=product/manufacturer/info&manufacturer_id=8"
+        }
     }
 }

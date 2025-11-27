@@ -42,16 +42,28 @@ test.describe("Header Page", () => {
         await expect(page).toHaveURL(urlPaths.account.login);
     });
 
-    // navigate to mega menu options
+    test.describe("Mega Menu", () => {
+        test("Verify user can click into Mega Menu > Mobiles > Apple", async({ page }) => {
+            await headerPage.clickMegaMenuOption('Apple');
+            await expect(page).toHaveURL(urlPaths.product.manufacturer.apple);
+        });
 
-    // navigate to shop by category options
-    test("Verify user can click Shop by Category links", async({ page }) => {
-        await headerPage.clickShopByCategoryMenu();
-        await headerPage.clickShopByCategoryComponents();
-        await expect(page).toHaveURL(urlPaths.product.componentsCategory);
+        test("Verify user can click into Mega Menu > Computer > Printer", async({ page }) => {
+            await headerPage.clickMegaMenuOption('Printer');
+            await expect(page).toHaveURL(urlPaths.product.category.printer);
+        });
+    })
+    
 
-        await headerPage.clickShopByCategoryMenu();
-        await headerPage.clickShopByCategoryCameras();
-        await expect(page).toHaveURL(urlPaths.product.camerasCategory);
-    });
+    test.describe("Shop by Category Menu", () => {
+        test("Verify user can click Shop by Category > Components", async({ page }) => {
+            await headerPage.clickShopByCategoryOption('Components');
+            await expect(page).toHaveURL(urlPaths.product.category.components);
+        });
+
+        test("Verify user can click Shop by Category > Cameras", async({ page }) => {
+            await headerPage.clickShopByCategoryOption('Cameras');
+            await expect(page).toHaveURL(urlPaths.product.category.cameras);
+        });
+    })
 })
