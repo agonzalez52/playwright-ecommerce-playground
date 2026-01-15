@@ -10,11 +10,14 @@ class HeaderPage{
         this.wishlistLink = page.getByRole('link', { name: 'Wishlist', exact: true });
         this.cartLink = page.getByRole('button', { name: '0' });
         this.shopByCategoryMenu = page.getByRole('button', { name: 'Shop by Category' });
+        this.shopByCategoryOption = (categoryName) => page.getByRole('link', { name: categoryName, exact: true });
         this.homeNavBarLink = page.getByRole('link', { name: 'Home' });
         this.specialNavBarLink = page.getByRole('link', { name: 'Special Hot', exact: true });
         this.blogNavBarLink = page.getByRole('link', { name: 'Blog', exact: true });
         this.megaMenuNavBarHover = page.getByRole('button', { name: 'Mega Menu' });
+        this.megaMenuOption = (optionName) => page.getByRole('link', { name: optionName, exact: true });
         this.addOnsNavBarHover = page.getByRole('button', { name: 'AddOns Featured' });
+        this.addOnsMenuOption = (optionName) => page.getByRole('link', { name: optionName });
         this.myAccountNavBarHover = page.getByRole('button', { name: ' My account' });
         this.myAccountNavBarHoverLogin = page.getByRole('link', { name: 'Login', exact: true });
         this.myAccountNavBarHoverRegister = page.getByRole('link', { name: 'Register', exact: true });
@@ -52,8 +55,13 @@ class HeaderPage{
         await this.cartLink.click();
     }
 
-    async clickShopByCateboryMenu(){
+    async clickShopByCategoryMenu(){
         await this.shopByCategoryMenu.click();
+    }
+
+    async clickShopByCategoryOption(categoryName){
+        await this.shopByCategoryMenu.click();
+        await this.shopByCategoryOption(categoryName).click();
     }
 
     async clickHomeNavBarLink(){
@@ -66,6 +74,24 @@ class HeaderPage{
 
     async clickBlogNavBarLink(){
         await this.blogNavBarLink.click();
+    }
+
+    async clickMegaMenuNavBarLink(){
+        await this.megaMenuNavBarHover.click();
+    }
+
+    async clickMegaMenuOption(optionName){
+        await this.megaMenuNavBarHover.hover();
+        await this.megaMenuOption(optionName).click();
+    }
+
+    async clickAddOnsOption(optionName){
+        await this.addOnsNavBarHover.hover();
+        await this.addOnsMenuOption(optionName).click();
+    }
+
+    async clickMyAccountNavBarLink(){
+        await this.myAccountNavBarHover.click();
     }
 
     async clickMyAccountHoverLogin(){
