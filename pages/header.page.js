@@ -17,6 +17,7 @@ class HeaderPage{
         this.megaMenuNavBarHover = page.getByRole('button', { name: 'Mega Menu' });
         this.megaMenuOption = (optionName) => page.getByRole('link', { name: optionName, exact: true });
         this.addOnsNavBarHover = page.getByRole('button', { name: 'AddOns Featured' });
+        this.addOnsMenuOption = (optionName) => page.getByRole('link', { name: optionName });
         this.myAccountNavBarHover = page.getByRole('button', { name: ' My account' });
         this.myAccountNavBarHoverLogin = page.getByRole('link', { name: 'Login', exact: true });
         this.myAccountNavBarHoverRegister = page.getByRole('link', { name: 'Register', exact: true });
@@ -82,6 +83,11 @@ class HeaderPage{
     async clickMegaMenuOption(optionName){
         await this.megaMenuNavBarHover.hover();
         await this.megaMenuOption(optionName).click();
+    }
+
+    async clickAddOnsOption(optionName){
+        await this.addOnsNavBarHover.hover();
+        await this.addOnsMenuOption(optionName).click();
     }
 
     async clickMyAccountNavBarLink(){

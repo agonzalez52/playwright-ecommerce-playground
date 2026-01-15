@@ -34,5 +34,11 @@
         {
             "apple": "?route=product/manufacturer/info&manufacturer_id=8"
         }
+    },
+    "addOns":
+    {
+        "modules": "?route=extension/maza/page&page_id=10",
+        "designs": "?route=extension/maza/page&page_id=11",
+        "widgets": "?route=extension/maza/page&page_id=9"
     }
 }

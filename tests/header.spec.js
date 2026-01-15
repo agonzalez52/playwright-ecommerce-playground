@@ -54,6 +54,22 @@ test.describe("Header Page", () => {
         });
     })
     
+    test.describe("AddOns", () => {
+        test("Verify user can click into Addons > Modules", async({page}) => {
+            await headerPage.clickAddOnsOption('Modules');
+            await expect(page).toHaveURL(urlPaths.addOns.modules);
+        });
+
+        test("Verify user can click into Addons > Desings", async({page}) => {
+            await headerPage.clickAddOnsOption('Designs');
+            await expect(page).toHaveURL(urlPaths.addOns.designs);
+        });
+
+        test("Verify user can click into Addons > Widgets", async({page}) => {
+            await headerPage.clickAddOnsOption('Widgets');
+            await expect(page).toHaveURL(urlPaths.addOns.widgets);
+        });
+    })
 
     test.describe("Shop by Category Menu", () => {
         test("Verify user can click Shop by Category > Components", async({ page }) => {
