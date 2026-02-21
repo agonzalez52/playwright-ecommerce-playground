@@ -10,6 +10,32 @@ test.describe("Header Page", () => {
         await page.goto(urlPaths.home);
     });
 
+    test.describe("Search bar categories", () => {
+        test("Verify user can choose search bar category: All Categories", async () => {
+            await headerPage.clickSearchBarCategoryDropdown();
+            await headerPage.searchBarCategoryLink('All Categories').click();
+
+            await expect(headerPage.searchBarCategoryDropdown('All Categories')).toBeVisible();
+        });
+
+        test("Verify user can choose search bar category: Desktops", async() => {
+            await headerPage.clickSearchBarCategoryDropdown();
+            await headerPage.searchBarCategoryLink('Desktops').click();
+
+            await expect(headerPage.searchBarCategoryDropdown('Desktops')).toBeVisible();
+        });
+    });
+
+    test("Verify user can click first suggested option when typing in search bar", async({ page }) => {
+        let searchInput = 'ipho'
+        await headerPage.clickSearchField();
+        await headerPage.fillSearchField(searchInput);
+        await headerPage.clickFirstSuggestedResultByInput(searchInput);
+        
+        // Verify user lands on product page
+        await expect(page).toHaveURL(/\?route=product\//);
+    })
+
     test("Verify user can navigate to My account > Login", async ({ page }) => {
         await headerPage.clickMyAccountHoverLogin();
 
