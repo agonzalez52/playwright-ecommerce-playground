@@ -3,8 +3,11 @@ class HeaderPage{
     constructor(page){
         this.page = page;
         this.logo = page.getByRole('link', { name: 'Poco Electro' });
-        this.searchBarCategoryDropdown = page.getByRole('button', { name: 'All Categories' });
+        this.searchBarCategoryDropdown = (activeCategory = 'All Categories') => page.getByRole('button', { name: activeCategory });
+        this.searchBarCategoryLink = (categoryName) => page.getByRole('link', { name: categoryName, exact: true });
         this.searchField = page.getByRole('textbox', { name: 'Search For Products' });
+        this.suggestedResultByIndex = (index) => page.locator('.dropdown-menu.autocomplete li.product-thumb').nth(index);
+        this.firstSuggestedResultBySearchInput = (productName) => page.locator('li.product-thumb a').filter({ hasText: productName }).first();
         this.searchButton = page.getByRole('button', { name: 'Search' });
         this.compareLink = page.getByRole('link', { name: 'Compare', exact: true });
         this.wishlistLink = page.getByRole('link', { name: 'Wishlist', exact: true });
@@ -28,7 +31,7 @@ class HeaderPage{
     }
 
     async clickSearchBarCategoryDropdown(){
-        await this.searchBarCategoryDropdown.click();
+        await this.searchBarCategoryDropdown().click();
     }
 
     async clickSearchField(){
@@ -37,6 +40,14 @@ class HeaderPage{
 
     async fillSearchField(text){
         await this.searchField.fill(text);
+    }
+
+    async clickSuggestedResultByIndex(index){
+        await this.suggestedResultByIndex(index).click();
+    }
+
+    async clickFirstSuggestedResultByInput(searchInput){
+        await this.firstSuggestedResultBySearchInput(searchInput).click();
     }
 
     async clickSearchButton(){
