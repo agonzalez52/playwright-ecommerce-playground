@@ -25,9 +25,11 @@
         "special": "?route=product/special",
         "category":
         {
+            "desktops": "?route=product/category&path=20",
             "components": "?route=product/category&path=25",
             "printer": "?route=product/category&path=30",
-            "cameras": "?route=product/category&path=33"
+            "cameras": "?route=product/category&path=33",
+            "mp3Players": "?route=product/category&path=34"
             
         },
         "manufacturer":
